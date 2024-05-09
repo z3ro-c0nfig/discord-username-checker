@@ -19,8 +19,8 @@ includenum = "n" # Include numbers (y/n)
 numbercheck = 0 # How many usernames to check
 #             ^ DO NOT ADD ANY "" JUST REPLACE 0 WITH YOUR NUMBER!
 
-delay = 2 # I do not recommend changing this! (IF YOU GET RATE LIMITED ITS FOR 350 SECONDS!)
-#       ^ DO NOT ADD ANY "" JUST REPLACE 2 WITH YOUR NUMBER!
+delay = 3 # I do not recommend changing this! (IF YOU GET RATE LIMITED ITS FOR 350 SECONDS!)
+#       ^ DO NOT ADD ANY "" JUST REPLACE 3 WITH YOUR NUMBER!
 
 # ----------------- CODE ----------------- #
 
@@ -61,9 +61,9 @@ for _ in range(numbercheck):
     if response.status_code == 200: # Checks if it dindt get rate limited
         if "true" in response.text: # Checks if its used
             print(colored(f"{rand} is taken!", 'red')) # Prints the text
-            write_file(rand) # Writes it to a .txt file
         elif "false" in response.text: # Checks if its used
             print(colored(f"{rand} is available!", 'green')) # Prints the text
+            write_file(rand) # Writes it to a .txt file
     elif response.status_code == 429: # Checks if it dindt get rate limited
         print(colored(f"Error: Too many requests! Switch token!", 'red')) # Prints the text
     else: # Checks if it dindt get rate limited
